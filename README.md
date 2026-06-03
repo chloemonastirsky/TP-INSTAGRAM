@@ -1,6 +1,6 @@
-# Catstagram 🐾 (Clon de Instagram con React)
+# DogStagram 🐾 (Clon de Instagram con React)
 
-¡Bienvenido/a a **Catstagram**! Este proyecto es un clon de la interfaz web de Instagram adaptado para visualizar publicaciones dinámicas de gatitos consumidas desde una API externa. Desarrollado como Trabajo Práctico para la especialización en Informática.
+¡Bienvenido/a a **DogStagram**! Este proyecto es un clon de la interfaz web de Instagram adaptado para visualizar publicaciones dinámicas de gatitos consumidas desde una API externa. Desarrollado como Trabajo Práctico para la especialización en Informática.
 
 ---
 
