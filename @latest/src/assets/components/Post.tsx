@@ -7,8 +7,10 @@ export type DogPost = {
   url: string
   width: number
   height: number
-  razas: Array<{
-    nombre: string
+  breeds: Array<{
+    name: string
+    temperament?: string
+    bred_for?: string
   }>
 }
 
