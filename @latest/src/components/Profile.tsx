@@ -1,6 +1,13 @@
 import React from 'react'
 import './Profile.css'
 
+export type Profile = {
+    usuario: string;
+    seguidos: number;
+    seguidores: number;
+    fotoPerfil: string;
+    bio: string;
+}
 export type PostItem = {
 	id: string | number
 	url: string
@@ -10,6 +17,10 @@ export type PostItem = {
 export type ProfileProps = {
 	posts: PostItem[]
 	onSelectPost: (post: PostItem) => void
+}
+
+export type ProfileEdit = {
+    
 }
 
 const Profile: React.FC<ProfileProps> = ({ posts, onSelectPost }) => {
