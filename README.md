@@ -32,6 +32,11 @@ src/
 ├── services/        # Configuración de Axios y peticiones a la API.
 ├── App.jsx          # Componente principal y gestor de estados globales.
 ├── index.css        # Estilos globales y variables de diseño.
+
+
+Figma base: https://www.figma.com/design/0mZB9BKCwfKvjJVtmhZRru/Instagram---Web-UI--Recreated---Community-?node-id=1-8326&t=w6Kms8Jl6tMnChKW-0
+
+
 └── main.jsx         # Punto de entrada de React.
 
 
