@@ -1,6 +1,6 @@
 // src/services/dogApi.ts
 import axios from 'axios'
-import type { DogPost } from './src/assets/components/Post'
+import type { DogPost } from './src/components/Post/Post'
 
 const API_KEY = 'live_nq1bFYpzQtST65hxusiK5PIsZBz7r4XQvMUrQRyKptCNmHHVQHsQpJGOlqE8W1Jr'
 

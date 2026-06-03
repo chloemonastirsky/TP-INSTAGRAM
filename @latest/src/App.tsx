@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import {fetchPosts} from '../api.js'
-import type { DogPost } from './assets/components/Post'
-import Post from './assets/components/Post'
+import type { DogPost } from './components/Post/Post.js'
+import Post from './components/Post/Post.js'
 
 function App() {
   const [posts, setPosts] = useState<DogPost[]>([])
