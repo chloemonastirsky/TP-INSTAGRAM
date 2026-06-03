@@ -7,6 +7,9 @@ export type DogPost = {
   url: string
   width: number
   height: number
+  razas: Array<{
+    nombre: string
+  }>
 }
 
 type PostProps = {
@@ -33,7 +36,7 @@ const Post: React.FC<PostProps> = ({
   }
 
 
-  return (
+   return (
     <article className="post-card">
       <header className="post-header">
         <div className="post-header-left">
@@ -66,7 +69,8 @@ const Post: React.FC<PostProps> = ({
       </div>
 
       <p className="likes"><strong>{likes.toLocaleString('es-AR')} me gusta</strong></p>
-      <p className="caption">🐾
+      <p className="caption">
+        <strong>{username}</strong> 
       </p>
       <p className="time">{timeAgo}</p>
     </article>

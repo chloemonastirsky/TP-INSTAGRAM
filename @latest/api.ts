@@ -1,6 +1,6 @@
 // src/services/dogApi.ts
 import axios from 'axios'
-import type { DogPost } from '../components/Post/Post'
+import type { DogPost } from './src/components/Post'
 
 const API_KEY = 'live_nq1bFYpzQtST65hxusiK5PIsZBz7r4XQvMUrQRyKptCNmHHVQHsQpJGOlqE8W1Jr'
 
@@ -10,9 +10,7 @@ const api = axios.create({
 })
 
 export const fetchPosts = async (limit = 10): Promise<DogPost[]> => {
-  const { data } = await api.get<DogPost[]>('/images/search', {
-    params: { limit, has_breeds: 1 },
-  })
+  const { data } = await api.get<DogPost[]>('/images/search')
   return data
 }
 
