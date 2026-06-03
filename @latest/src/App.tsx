@@ -3,6 +3,7 @@ import {fetchPosts} from '../api.js'
 import type { DogPost } from './components/Post/Post.js'
 import Post from './components/Post/Post.js'
 
+
 function App() {
   const [posts, setPosts] = useState<DogPost[]>([])
   const [loading, setLoading] = useState(true)

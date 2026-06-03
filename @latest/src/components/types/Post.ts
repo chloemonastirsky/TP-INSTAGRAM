@@ -11,7 +11,7 @@ export type DogPost = {
   url: string
   width?: number
   height?: number
-  breeds?: Breed[]  // ← separar el tipo Breed es más limpio
+  breeds?: Breed[]  
 }
 
 export type PostSummary = {
@@ -19,6 +19,6 @@ export type PostSummary = {
   url: string
 }
 
-// export type PropsFeed = {
-//     posts: Post[];
-// }
+export type PropsFeed = {
+    posts: DogPost[];
+}
