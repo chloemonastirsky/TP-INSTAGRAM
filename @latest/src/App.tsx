@@ -1,26 +1,38 @@
 import { useState, useEffect } from 'react'
-import {fetchPosts} from '../api.js'
-import type { DogPost } from './components/Post/Post.js'
-import Post from './components/Post/Post.js'
-
+import { fetchPosts } from '../api'
+import type { DogPost } from './components/types/Post'
+import Header from './components/Header/Header'
+import type Feed from './components/Feed/Feed'
+import type { HeaderProps } from './components/types/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import './App.css'
 
 function App() {
   const [posts, setPosts] = useState<DogPost[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-     fetchPosts(5)
-       .then(setPosts)
+    fetchPosts(5)
+      .then(setPosts)
       .finally(() => setLoading(false))
   }, [])
 
-  if (loading) return <p>Cargando perritos...</p>
-
   return (
-    <main>
-      {posts.map(post => (
-        <Post key={post.id} post={post} initialLikes={Math.floor(Math.random() * 2000)} />
-      ))}
-    </main>
+    <div className="app-layout">
+      <Header />
+      <div className="app-content">
+        {loading ? <p>Cargando perritos...</p> : <Feed posts={posts} />}
+        <Sidebar
+          currentUser={{
+            username: 'dog_lover_2026',
+            avatarUrl: posts[0]?.url ?? '',
+            fullName: 'Firulais & Co.'
+          }}
+          suggestions={[]}
+        />
+      </div>
+    </div>
   )
 }
+
+export default App

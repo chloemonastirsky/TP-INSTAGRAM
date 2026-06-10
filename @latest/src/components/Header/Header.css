@@ -1,0 +1,97 @@
+.ig-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+  border-bottom: 1px solid #dbdbdb;
+  width: 100%;
+}
+
+.ig-header-inner {
+  max-width: 975px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ig-logo {
+  font-family: 'Billabong', cursive, serif;
+  font-size: 26px;
+  color: #262626;
+  line-height: 1;
+  user-select: none;
+}
+
+.ig-search {
+  position: relative;
+}
+
+.ig-search input {
+  background: #efefef;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 12px 7px 34px;
+  font-size: 14px;
+  width: 220px;
+  color: #262626;
+  outline: none;
+}
+
+.ig-search input::placeholder {
+  color: #8e8e8e;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.ig-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ig-nav button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  font-size: 22px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.ig-nav button:hover {
+  background: #f0f0f0;
+}
+
+.avatar-btn {
+  padding: 2px !important;
+}
+
+.avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #dbdbdb;
+  display: block;
+}
+
+.avatar-placeholder {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #efefef;
+  border: 1px solid #dbdbdb;
+}
