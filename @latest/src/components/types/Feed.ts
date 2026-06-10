@@ -1,5 +1,5 @@
-import type { DogPost } from "../Post/Post";
+import type { DogPost } from "./Post";
 
-export type Feed = {
+export type FeedProps = {
     posts: DogPost[]
 }

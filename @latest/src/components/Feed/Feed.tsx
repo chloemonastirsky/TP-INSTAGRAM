@@ -1,7 +1,8 @@
-import type { Feed } from "../types/Feed";
+import type { FeedProps } from "../types/Feed";
 import Post from "../Post/Post";
+import React from 'react'
 
-const Feed = ( {posts}: Feed ) => {
+const Feed: React.FC<FeedProps> = ({ posts }) => {
     if (posts.length === 0) {
     return <p className="feed-empty">No hay publicaciones todavía.</p>
   }

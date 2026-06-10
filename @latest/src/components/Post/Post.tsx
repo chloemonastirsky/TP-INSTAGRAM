@@ -1,18 +1,6 @@
 import React, { useState } from 'react'
+import type { DogPost } from '../types/Post'
 import './Post.css'
-
-// Tipo basado en la respuesta real de TheDogAPI
-export type DogPost = {
-  id: string
-  url: string
-  width: number
-  height: number
-  breeds: Array<{
-    name: string
-    temperament?: string
-    bred_for?: string
-  }>
-}
 
 type PostProps = {
   post: DogPost
