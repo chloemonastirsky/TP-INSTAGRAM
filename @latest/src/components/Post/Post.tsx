@@ -12,11 +12,13 @@ type PostProps = {
 
 const Post: React.FC<PostProps> = ({
   post,
-  username = 'dog_lover_2026',
+  username = 'firulaichuwis_ok',
   location = 'Buenos Aires',
   timeAgo = 'hace 2 horas',
   initialLikes = 0,
    }) => {
+  
+  
   const [liked, setLiked] = useState(false)
   const [likes, setLikes] = useState(initialLikes)
 
@@ -31,7 +33,7 @@ const Post: React.FC<PostProps> = ({
       <header className="post-header">
         <div className="post-header-left">
           <div className="avatar">
-            <img src={post.url} alt={`Avatar de ${username}`} />
+            <img src={post.url} alt={`Avatar de ${username}`} className="avatar-img" />
           </div>
           <div>
             <p className="username">{username}</p>
@@ -44,6 +46,7 @@ const Post: React.FC<PostProps> = ({
       <img
         className="post-image"
         src={post.url}
+        alt={`Imagen de ${username}`}
       />
 
       <div className="post-actions">

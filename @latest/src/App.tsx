@@ -3,8 +3,9 @@ import { fetchPosts } from '../api'
 import type { DogPost } from './components/types/Post'
 import Header from './components/Header/Header'
 import Feed from './components/Feed/Feed'
-import type { HeaderProps } from './components/types/Header'
-import SideBar from './components/SideBar/SideBar'
+// import SideBar from './components/SideBar/SideBar'
+import Profile from './components/Profile/Profile'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 
 function App() {
@@ -30,16 +31,26 @@ function App() {
     <div className="app-layout">
       <Header />
       <div className="app-content">
-        {loading ? <p>Cargando perritos...</p> : <Feed posts={posts} />}
-        <SideBar  
-          currentUser={{
-            username: 'dog_lover_2026',
-            avatarUrl: posts[0]?.url ?? '',
-            fullName: 'Firulais & Co.'
-          }}
-          suggestions={[]}
-        />
-      </div>
+        <Routes>
+          <Route
+            path="/"
+            element={loading ? <p>Cargando perritos...</p> : <Feed posts={posts} />}
+          />
+          <Route
+            path="/profile"
+            element={<Profile posts={posts} onSelectPost={() => {}} />}
+          />
+        </Routes>
+
+          {/* <SideBar  
+            currentUser={{
+              username: 'dog_lover_2026',
+              avatarUrl: posts[0]?.url ?? '',
+              fullName: 'Firulais & Co.'
+            }}
+            suggestions={[]}
+          /> */}
+        </div>
     </div>
   )
 }
