@@ -7,6 +7,7 @@ import Feed from './components/Feed/Feed'
 import Profile from './components/Profile/Profile'
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
+import SideBar from './components/SideBar/SideBar'
 
 function App() {
   const [posts, setPosts] = useState<DogPost[]>([])
@@ -42,14 +43,10 @@ function App() {
           />
         </Routes>
 
-          {/* <SideBar  
-            currentUser={{
-              username: 'dog_lover_2026',
-              avatarUrl: posts[0]?.url ?? '',
-              fullName: 'Firulais & Co.'
-            }}
-            suggestions={[]}
-          /> */}
+         <SideBar>
+         </SideBar>
+         <SideBar usuariosSideBar={[{ id: '1', username: 'sug1', avatarUrl: 'https://place-puppy.com/50x50' }]} />
+
         </div>
     </div>
   )

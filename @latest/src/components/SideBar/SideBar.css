@@ -1,0 +1,79 @@
+.sidebar {
+  position: fixed; /* Mantiene la barra fija a la izquierda aunque hagas scroll */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 245px; /* Ancho estándar de la barra de Instagram en escritorio */
+  background-color: #ffffff;
+  border-right: 1px solid #dbdbdb; /* Línea divisoria gris sutil idéntica a la foto */
+  display: flex;
+  flex-direction: column; /* Alinea logo, nav y footer verticalmente */
+  padding: 8px 12px 20px 12px;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Contenedor del Logo */
+.sidebar-logo {
+  padding: 25px 12px 35px 12px;
+}
+
+.sidebar-logo h2 {
+  font-family: 'Style Script', 'Grand Hotel', cursive, sans-serif; /* Simula la tipografía cursiva de IG */
+  font-size: 24px;
+  margin: 0;
+  font-weight: 500;
+  color: #000000;
+}
+
+/* Contenedor de Navegación */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Espaciado uniforme entre cada ítem */
+  flex-grow: 1; /* Hace que este bloque ocupe todo el espacio disponible, empujando el footer abajo */
+}
+
+/* Ítems de navegación (Botones) */
+.nav-item {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center; /* Alinea verticalmente el ícono y el texto */
+  gap: 16px; /* Espacio entre el ícono y el texto */
+  padding: 12px;
+  width: 100%;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+/* Efecto Hover idéntico a Instagram */
+.nav-item:hover {
+  background-color: #f2f2f2; /* Sutil gris cuando pasás el mouse */
+}
+
+.nav-icon {
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.nav-text {
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
+
+/* Estado activo (cuando estás parado en esa pestaña) */
+.nav-item.active .nav-text {
+  font-weight: 700; /* Pone el texto en negrita */
+}
+
+/* Footer (Botón Más) */
+.sidebar-footer {
+  margin-top: auto; /* Asegura que se quede abajo de todo */
+}
