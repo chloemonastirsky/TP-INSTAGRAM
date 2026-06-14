@@ -1,3 +1,5 @@
+import type { DogPost } from "./Post";
+
 export type Profile = {
     usuario: string;
     seguidos: number;
@@ -14,7 +16,7 @@ export type PostItem = {
 export type ProfileProps = {
     posts: PostItem[]
     onSelectPost: (post: PostItem) => void
-    onVerDetalle: (post: { id: string; url: string }) => void;
+     onVerDetalle: (post: DogPost) => void
 
 }
 
