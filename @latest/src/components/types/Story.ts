@@ -1,10 +1,11 @@
-export type Story = {
-  id: string
-  username: string
-  avatarUrl: string
-  seen: boolean
-}
+import type { DogPost } from "./Post";
 
-export type StoriesProps = {
-  stories: Story[]
+export type PostItem = {
+  id: string
+  url: string
+}
+export type StoryProps = {
+  post: DogPost
+  username: string
+  vista?: boolean   // si ya fue vista o no (cambia el color del anillo)
 }

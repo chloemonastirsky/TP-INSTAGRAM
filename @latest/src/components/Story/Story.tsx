@@ -1,11 +1,6 @@
 import type { DogPost } from '../types/Post'
+import type { StoryProps } from '../types/Story'
 import './Story.css'
-
-type StoryProps = {
-  post: DogPost
-  username: string
-  vista?: boolean   // si ya fue vista o no (cambia el color del anillo)
-}
 
 const Story = ({ post, username, vista = false }: StoryProps) => {
   return (

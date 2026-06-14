@@ -15,6 +15,25 @@
   padding: 30px 20px;
 }
 
+/* Barra horizontal de historias */
+.stories-barra {
+  display: flex;
+  gap: 16px;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: 8px;
+  padding: 16px 12px;
+  overflow-x: auto;
+  margin-bottom: 24px;
+  max-width: 470px;
+  /* Oculta la barra de scroll para que quede prolijo */
+  scrollbar-width: none;
+}
+
+.stories-barra::-webkit-scrollbar {
+  display: none;
+}
+
 .cargando {
   text-align: center;
   color: #8e8e8e;

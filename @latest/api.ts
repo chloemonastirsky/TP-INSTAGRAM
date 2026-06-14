@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { DogPost } from './components/types/Post'
+import type { DogPost } from './src/components/types/Post'
 const API_KEY = 'live_nq1bFYpzQtST65hxusiK5PIsZBz7r4XQvMUrQRyKptCNmHHVQHsQpJGOlqE8W1Jr'
 
 const api = axios.create({

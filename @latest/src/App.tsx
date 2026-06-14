@@ -7,7 +7,11 @@ import Feed from './components/Feed/Feed'
 import Modal from './components/Modal/Modal'
 import Profile from './components/Profile/Profile'
 import SideBar from './components/SideBar/SideBar'
+import Story from './components/Story/Story'
 import './App.css'
+
+// Usernames simulados para las historias
+const USUARIOS_STORIES = ['firulais.ok', 'laika_ok', 'max.perro', 'doggo22', 'husky.ar', 'puglover']
 
 function App() {
   const [posts, setPosts] = useState<DogPost[]>([])
@@ -36,7 +40,23 @@ function App() {
             element={
               cargando
                 ? <p className="cargando">Cargando publicaciones...</p>
-                : <Feed posts={posts} onVerDetalle={setPostSeleccionado} />
+                : (
+                  <div>
+                    {/* Barra de historias — usa los primeros 6 posts como fotos */}
+                    <div className="stories-barra">
+                      {posts.slice(0, 6).map((post, indice) => (
+                        <Story
+                          key={post.id}
+                          post={post}
+                          username={USUARIOS_STORIES[indice]}
+                          vista={indice === 0}   // la primera historia ya fue vista
+                        />
+                      ))}
+                    </div>
+
+                    <Feed posts={posts} onVerDetalle={setPostSeleccionado} />
+                  </div>
+                )
             }
           />
           <Route
