@@ -1,18 +1,15 @@
-.feed-container {
+/* Columna central del feed */
+.feed {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 24px;
-
   width: 100%;
-  max-width: 470px;      /* ancho del feed en Instagram web */
-  margin: 0 auto;
-  padding: 24px 0;
+  max-width: 470px;
 }
 
-.feed-empty {
-  text-align: center;
+.feed-vacio {
   color: #8e8e8e;
-  margin-top: 48px;
   font-size: 14px;
+  text-align: center;
+  margin-top: 60px;
 }

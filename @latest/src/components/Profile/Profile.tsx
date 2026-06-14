@@ -1,72 +1,64 @@
-import React from 'react'
-import type { ProfileProps } from '../types/Profile';
+import type { ProfileProps } from '../types/Profile'
 import './Profile.css'
+import Post from '../Post/Post'
 
-const Profile: React.FC<ProfileProps> = ({ posts, onSelectPost }) => {
-	const userProfile = {
-		username: 'dog_lover_2026',
-		avatar: 'https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg',
-		fullName: 'Firulais & Co.',
-		bio: 'Explorando el mundo, un ladrido a la vez. 🐾 Amante de las caminatas largas y las APIs estables. Creador de contenido canino.',
-		followers: '12.4K',
-		following: '482',
-	}
+// Datos del usuario logueado (simulado, sin login real)
+const USUARIO = {
+  username: 'dog_lover_2026',
+  nombreCompleto: 'Firulais & Co.',
+  bio: 'Explorando el mundo, un ladrido a la vez 🐾 Amante de las caminatas largas.',
+  seguidores: '12.4K',
+  seguidos: '482',
+  avatar: 'https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg',
+}
 
-	return (
-		<div className="profile-container">
-			<header className="profile-header">
-				<div className="profile-avatar-container">
-					<img
-						className="profile-avatar"
-						src={userProfile.avatar}
-						alt={`Foto de perfil de ${userProfile.username}`}
-					/>
-				</div>
+const Profile = ({ posts, onVerDetalle }: ProfileProps) => {
+  return (
+    <div className="perfil">
 
-				<section className="profile-info">
-					<div className="profile-username-row">
-						<h2>{userProfile.username}</h2>
-						<button className="edit-profile-btn">Editar perfil</button>
-					</div>
+      {/* Encabezado del perfil */}
+      <header className="perfil-header">
+        <img src={USUARIO.avatar} alt="Foto de perfil" className="perfil-foto" />
 
-					<ul className="profile-stats">
-						<li>
-							<strong>{posts?.length ?? 0}</strong> publicaciones
-						</li>
-						<li>
-							<strong>{userProfile.followers}</strong> seguidores
-						</li>
-						<li>
-							<strong>{userProfile.following}</strong> seguidos
-						</li>
-					</ul>
+        <div className="perfil-info">
+          {/* Fila con username y botón editar */}
+          <div className="perfil-fila-usuario">
+            <h2 className="perfil-username">{USUARIO.username}</h2>
+            <button className="perfil-btn-editar">Editar perfil</button>
+          </div>
 
-					<div className="profile-bio">
-						<h1>{userProfile.fullName}</h1>
-						<p>{userProfile.bio}</p>
-					</div>
-				</section>
-			</header>
+          {/* Estadísticas */}
+          <ul className="perfil-stats">
+            <li><strong>{posts.length}</strong> publicaciones</li>
+            <li><strong>{USUARIO.seguidores}</strong> seguidores</li>
+            <li><strong>{USUARIO.seguidos}</strong> seguidos</li>
+          </ul>
 
-			<hr className="profile-divider" />
+          {/* Bio */}
+          <div className="perfil-bio">
+            <p className="perfil-nombre">{USUARIO.nombreCompleto}</p>
+            <p>{USUARIO.bio}</p>
+          </div>
+        </div>
+      </header>
 
-			<div className="profile-grid">
-				{posts && posts.map((post) => (
-					<div
-						key={post.id}
-						className="profile-grid-item"
-						onClick={() => onSelectPost(post)}
-					>
-						<img
-							className="profile-grid-image"
-							src={post.url}
-							alt="Publicación de perrito"
-						/>
-					</div>
-				))}
-			</div>
-		</div>
-	)
+      <hr className="perfil-divisor" />
+
+      {/* Grilla de publicaciones */}
+      <div className="perfil-grilla">
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            className="perfil-grilla-item"
+            // onClick={() => onVerDetalle({ id: post.id, url: post.url })}
+          >
+            <img src={post.url} alt="Publicación" className="perfil-grilla-imagen" />
+          </div>
+        ))}
+      </div>
+
+    </div>
+  )
 }
 
 export default Profile

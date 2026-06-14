@@ -1,71 +1,63 @@
-import React from 'react';
-import './SideBar.css';
+import { useNavigate } from 'react-router-dom'
+import './SideBar.css'
 
-// 1. Definimos la estructura que va a tener cada usuario sugerido
-type SugerenciaUsuario = {
-  id: string;
-  username: string;
-  avatarUrl: string;
-};
+// Usuarios sugeridos simulados
+const SUGERENCIAS = [
+  { id: '1', username: 'golden.retriever.arg', razon: 'Te sigue', avatar: 'https://images.dog.ceo/breeds/retriever-golden/n02099601_2535.jpg' },
+  { id: '2', username: 'husky_de_baires', razon: 'Nuevo en Instagram', avatar: 'https://images.dog.ceo/breeds/husky/n02110185_10131.jpg' },
+  { id: '3', username: 'pug.master.ok', razon: 'Nuevo en Instagram', avatar: 'https://images.dog.ceo/breeds/pug/n02123394_1119.jpg' },
+  { id: '4', username: 'labradorlover22', razon: 'Te sigue', avatar: 'https://images.dog.ceo/breeds/labrador/n02099712_3050.jpg' },
+  { id: '5', username: 'dachshund.world', razon: 'Nuevo en Instagram', avatar: 'https://images.dog.ceo/breeds/dachshund/n02088364_11154.jpg' },
+]
 
-// 2. Agregamos 'usuariosSideBar' a las props del componente
-type SidebarProps = {
-  setCurrentView?: (view: 'home' | 'profile') => void;
-  currentView?: 'home' | 'profile';
-  usuariosSideBar?: SugerenciaUsuario[]; // 🔥 Es un array de usuarios sugeridos
-};
+const SideBar = () => {
+  const navigate = useNavigate()
 
-const Sidebar: React.FC<SidebarProps> = ({ setCurrentView = () => {}, currentView = 'home', usuariosSideBar = [] }) => {
   return (
     <aside className="sidebar">
-      <div className="sidebar-logo">
-        <h2>Instagram</h2>
-      </div>
 
-      <nav className="sidebar-nav">
-        <button 
-          className={`nav-item ${currentView === 'home' ? 'active' : ''}`}
-          onClick={() => setCurrentView('home')}
-        >
-          <span className="nav-icon">🏠</span>
-          <span className="nav-text">Inicio</span>
-        </button>
-
-        {/* ... los demás botones que ya tenías impecables ... */}
-
-        <button 
-          className={`nav-item ${currentView === 'profile' ? 'active' : ''}`}
-          onClick={() => setCurrentView('profile')}
-        >
-          <span className="nav-icon">👤</span>
-          <span className="nav-text">Perfil</span>
-        </button>
-      </nav>
-
-      {/* 🔥 3. Seccion para renderizar dinámicamente los usuarios si te los pasan */}
-      {usuariosSideBar && usuariosSideBar.length > 0 && (
-        <div className="sidebar-suggestions-section">
-          <p className="suggestions-title">Sugerencias para ti</p>
-          <div className="suggestions-list">
-            {usuariosSideBar.map((usuario) => (
-              <div key={usuario.id} className="suggestion-user-item">
-                <img src={usuario.avatarUrl} alt={usuario.username} className="suggestion-avatar" />
-                <span className="suggestion-username">{usuario.username}</span>
-                <button className="follow-btn">Seguir</button>
-              </div>
-            ))}
-          </div>
+      {/* Perfil del usuario logueado */}
+      <div className="sidebar-perfil">
+        <img
+          src="https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg"
+          alt="Mi perfil"
+          className="sidebar-perfil-avatar"
+        />
+        <div className="sidebar-perfil-info">
+          <p className="sidebar-perfil-username" onClick={() => navigate('/perfil')}>
+            dog_lover_2026
+          </p>
+          <p className="sidebar-perfil-nombre">Firulais & Co.</p>
         </div>
-      )}
-
-      <div className="sidebar-footer">
-        <button className="nav-item menu-more">
-          <span className="nav-icon">☰</span>
-          <span className="nav-text">Más</span>
-        </button>
+        <button className="sidebar-cambiar-btn">Cambiar</button>
       </div>
-    </aside>
-  );
-};
 
-export default Sidebar;
+      {/* Sugerencias para seguir */}
+      <div className="sidebar-sugerencias-header">
+        <p className="sidebar-sugerencias-titulo">Sugerencias para ti</p>
+        <button className="sidebar-ver-todo-btn">Ver todo</button>
+      </div>
+
+      <ul className="sidebar-sugerencias">
+        {SUGERENCIAS.map((usuario) => (
+          <li key={usuario.id} className="sidebar-sugerencia-item">
+            <img src={usuario.avatar} alt={usuario.username} className="sidebar-sugerencia-avatar" />
+            <div className="sidebar-sugerencia-info">
+              <p className="sidebar-sugerencia-username">{usuario.username}</p>
+              <p className="sidebar-sugerencia-razon">{usuario.razon}</p>
+            </div>
+            <button className="sidebar-seguir-btn">Seguir</button>
+          </li>
+        ))}
+      </ul>
+
+      {/* Links del footer */}
+      <p className="sidebar-footer">
+        Acerca de · Ayuda · Privacidad · Condiciones
+      </p>
+
+    </aside>
+  )
+}
+
+export default SideBar

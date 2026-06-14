@@ -1,24 +1,23 @@
-import React, { useState } from 'react'
-import type { Profile } from '../types/Profile'
-import './Post.css'
+import type { DogPost } from '../types/Post'
+import './Story.css'
 
-const Story: React.FC<Profile> = ({
-  storyId,
-  username,
-  avatarUrl
-}) => {
-  
-  
-    return (
-    <div className="story-card">
+type StoryProps = {
+  post: DogPost
+  username: string
+  vista?: boolean   // si ya fue vista o no (cambia el color del anillo)
+}
 
-        <div className="story-avatar">          
-            <img src={avatarUrl} alt={`Avatar de ${username}`} className="story-avatar-img" />
+const Story = ({ post, username, vista = false }: StoryProps) => {
+  return (
+    <div className="story">
+      <div className={`story-anillo ${vista ? 'story-vista' : 'story-nueva'}`}>
+        <div className="story-fondo-blanco">
+          <img src={post.url} alt={`Historia de ${username}`} className="story-imagen" />
         </div>
-
-        <p className="story-username">{username}</p>
+      </div>
+      <p className="story-username">{username}</p>
     </div>
   )
-}   
+}
 
 export default Story

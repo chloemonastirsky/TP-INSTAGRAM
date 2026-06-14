@@ -14,6 +14,8 @@ export type PostItem = {
 export type ProfileProps = {
     posts: PostItem[]
     onSelectPost: (post: PostItem) => void
+    onVerDetalle: (post: { id: string; url: string }) => void;
+
 }
 
 export type ProfileEdit = {

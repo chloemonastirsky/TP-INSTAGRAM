@@ -1,149 +1,135 @@
-.post-card {
-  background-color: #ffffff;
+/* Tarjeta del post */
+.post {
+  background-color: #fff;
   border: 1px solid #dbdbdb;
   border-radius: 8px;
-  max-width: 470px; /* Ancho estándar del feed moderno de Instagram */
-  margin: 0 auto 24px auto;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  max-width: 470px;
+  width: 100%;
 }
 
-/* Encabezado */
+/* Cabecera */
 .post-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: 12px 16px;
-}
-
-.post-header-left {
-  display: flex;
-  align-items: center;
   gap: 12px;
 }
 
-.avatar {
+.post-avatar {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  overflow: hidden;
+  object-fit: cover;
   border: 1px solid #dbdbdb;
 }
 
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.post-usuario-info {
+  flex: 1;
 }
 
-.user-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.username {
+.post-username {
   font-size: 14px;
   font-weight: 600;
   color: #262626;
   margin: 0;
-  line-height: 18px;
 }
 
-.location {
+.post-ubicacion {
   font-size: 12px;
-  color: #737373;
+  color: #8e8e8e;
   margin: 0;
 }
 
-.more-options-btn {
+.post-mas {
   background: none;
   border: none;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 14px;
   color: #262626;
+  letter-spacing: 2px;
 }
 
-/* Contenedor de Imagen */
-.post-image-container {
+/* Foto principal cuadrada */
+.post-foto {
   width: 100%;
-  aspect-ratio: 1 / 1; /* Forzamos formato cuadrado como IG clásico */
-  overflow: hidden;
-  background-color: #fafafa;
-  cursor: pointer;
-}
-
-.post-image {
-  width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+  cursor: pointer;
 }
 
-/* Área inferior de contenido */
-.post-content-area {
-  padding: 0 16px 12px 16px;
+.post-foto:hover {
+  opacity: 0.95;
 }
 
-/* Botonera de acciones */
-.post-actions {
+/* Botones de acciones */
+.post-acciones {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 8px 12px 4px 12px;
 }
 
-.left-actions {
+.post-acciones-izq {
   display: flex;
-  gap: 16px;
+  gap: 14px;
 }
 
-.action-btn {
+.accion-btn {
   background: none;
   border: none;
-  font-size: 22px;
   cursor: pointer;
-  padding: 0;
-  transition: transform 0.1s ease;
+  padding: 4px;
+  color: #262626;
+  display: flex;
+  align-items: center;
 }
 
-.action-btn:hover {
-  transform: scale(1.1);
+.accion-btn:hover {
+  color: #8e8e8e;
 }
 
-.bookmark-btn {
-  font-size: 20px;
+/* Texto inferior */
+.post-info {
+  padding: 4px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* Textos */
-.likes {
+.post-likes {
   font-size: 14px;
   color: #262626;
-  margin: 0 0 8px 0;
+  margin: 0;
 }
 
-.caption {
+.post-caption {
   font-size: 14px;
   color: #262626;
-  line-height: 18px;
-  margin: 0 0 6px 0;
+  margin: 0;
 }
 
-.caption-username {
+.post-caption strong {
   margin-right: 6px;
 }
 
-.view-comments-btn {
+.post-ver-comentarios {
   background: none;
   border: none;
-  color: #737373;
+  color: #8e8e8e;
   font-size: 14px;
   cursor: pointer;
   padding: 0;
-  margin-bottom: 6px;
+  text-align: left;
 }
 
-.time {
+.post-ver-comentarios:hover {
+  color: #262626;
+}
+
+.post-tiempo {
   font-size: 10px;
-  color: #737373;
-  letter-spacing: 0.2px;
-  margin: 4px 0 0 0;
+  color: #c7c7c7;
+  letter-spacing: 0.3px;
+  margin: 0;
 }

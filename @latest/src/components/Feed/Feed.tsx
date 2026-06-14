@@ -1,23 +1,20 @@
-import type { FeedProps } from "../types/Feed";
-import Post from "../Post/Post";
-import React from 'react'
+import type { FeedProps } from '../types/Feed'
+import Post from '../Post/Post'
+import './Feed.css'
 
-const Feed: React.FC<FeedProps> = ({ posts }) => {
-    if (posts.length === 0) {
-    return <p className="feed-empty">No hay publicaciones todavía.</p>
+const Feed = ({ posts, onVerDetalle }: FeedProps) => {
+
+  if (posts.length === 0) {
+    return <p className="feed-vacio">No hay publicaciones todavía.</p>
   }
 
   return (
-    <main className="feed-container">
+    <main className="feed">
       {posts.map((post) => (
-        <Post
-          key={post.id}
-          post={post}   
-          initialLikes={Math.floor(Math.random() * 2000)}
-        />
+        <Post key={post.id} post={post} onVerDetalle={onVerDetalle} />
       ))}
     </main>
-  );
+  )
 }
 
-export default Feed;
+export default Feed

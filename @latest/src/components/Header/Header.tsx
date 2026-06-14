@@ -1,87 +1,63 @@
 import { useNavigate } from 'react-router-dom'
 import './Header.css'
-import type { HeaderProps } from '../types/Header'
 
-const Header = ({
-  avatarUrl,
-  onProfileClick,
-  onCreateClick,
-  onHomeClick,
-  onExploreClick,
-  onNotificationsClick,
-  onMessagesClick,
-  hasNotification = false,
-}: HeaderProps) => {
-    
+const Header = () => {
   const navigate = useNavigate()
 
-  // Lista simulada de usuarios para las historias (Basado en la captura)
-  const mockStories = [
-    { id: 1, username: 'itsdougthepug', img: 'https://images.dog.ceo/breeds/pug/n02123394_1119.jpg', hasStory: true },
-    { id: 2, username: 'opendoorcharity', img: 'https://images.dog.ceo/breeds/retriever-golden/n02099601_2535.jpg', hasStory: true },
-    { id: 3, username: 'lewis-fans', img: 'https://images.dog.ceo/breeds/terrier-irish/n02093991_403.jpg', hasStory: true },
-    { id: 4, username: 'rocketdog', img: 'https://images.dog.ceo/breeds/husky/n02110185_10131.jpg', hasStory: false },
-    { id: 5, username: 'dailycanines', img: 'https://images.dog.ceo/breeds/pomeranian/n02112018_2801.jpg', hasStory: true },
-    { id: 6, username: 'mkbhd_dog', img: 'https://images.dog.ceo/breeds/pinscher-miniature/n02107312_5393.jpg', hasStory: false }
-  ]
-
   return (
-    <header className="ig-header">
-      <div className="ig-header-inner">
+    <header className="header">
+      <div className="header-inner">
 
-        {/* Logo de Instagram a la izquierda */}
-        <span className="ig-logo" onClick={onHomeClick} role="button" tabIndex={0}>
+        {/* Logo */}
+        <span className="header-logo" onClick={() => navigate('/')}>
           Instagram
         </span>
-    
-        {/* 🔥 NUEVO: Sección centralizada de Historias */}
-        <div className="ig-stories-container">
-          {mockStories.map((story) => (
-            <div key={story.id} className="story-item">
-              <div className={`story-avatar-ring ${story.hasStory ? 'active-story' : 'seen-story'}`}>
-                <div className="story-avatar-bg">
-                  <img src={story.img} alt={`Historia de ${story.username}`} className="story-img" />
-                </div>
-              </div>
-              <span className="story-username">{story.username}</span>
-            </div>
-          ))}
+
+        {/* Buscador */}
+        <div className="header-buscador">
+          <input type="text" placeholder="Buscar" className="input-buscar" />
         </div>
 
-        {/* Navegación de íconos a la derecha */}
-        <nav className="ig-nav" aria-label="Navegación principal">
-          {/* <button className="nav-btn" aria-label="Inicio" onClick={onHomeClick}>
-            🏠
+        {/* Íconos de navegación */}
+        <nav className="header-nav">
+          <button className="nav-btn" onClick={() => navigate('/')} aria-label="Inicio">
+            {/* Ícono casa */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+            </svg>
           </button>
-          
-          <button className="nav-btn" aria-label="Mensajes directos" onClick={onMessagesClick}>
-            DM
-          </button>
-          
-          <button className="nav-btn" aria-label="Crear publicación" onClick={onCreateClick}>
-            ➕
-          </button>
-          
-          <button className="nav-btn" aria-label="Explorar" onClick={onExploreClick}>
-            🧭
-          </button>
-          
-          <button className="nav-btn notification-btn" aria-label="Notificaciones" onClick={onNotificationsClick}>
-            ❤️
-            {hasNotification && <span className="notification-badge" />}
-          </button> */}
 
-          {/* Botón de Perfil con Avatar Circular */}
-          <button
-            className="avatar-btn"
-            aria-label="Ver perfil"
-            onClick={() => { if (onProfileClick) onProfileClick(); else navigate('/profile') }}
-          >
-            {avatarUrl ? (
-              <img src={avatarUrl} alt="Foto de perfil" className="header-avatar-img" />
-            ) : (
-              <div className="avatar-placeholder" />
-            )}
+          <button className="nav-btn" aria-label="Explorar">
+            {/* Ícono brújula */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <circle cx="12" cy="12" r="10" />
+              <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+            </svg>
+          </button>
+
+          <button className="nav-btn" aria-label="Crear publicación">
+            {/* Ícono + cuadrado */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <line x1="12" y1="8" x2="12" y2="16" />
+              <line x1="8" y1="12" x2="16" y2="12" />
+            </svg>
+          </button>
+
+          <button className="nav-btn" aria-label="Notificaciones">
+            {/* Ícono corazón */}
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            </svg>
+          </button>
+
+          {/* Avatar / Perfil */}
+          <button className="nav-btn avatar-btn" onClick={() => navigate('/perfil')} aria-label="Perfil">
+            <img
+              src="https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg"
+              alt="Mi perfil"
+              className="header-avatar"
+            />
           </button>
         </nav>
 
