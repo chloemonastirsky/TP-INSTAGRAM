@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { fetchPosts } from '../api'
 import type { DogPost } from './components/types/Post'
-import Header from './components/Header/Header'
 import Feed from './components/Feed/Feed'
 import Modal from './components/Modal/Modal'
 import Profile from './components/Profile/Profile'
-import SideBar from './components/SideBar/SideBar'
+import SideBar from './components/SideBarRight/SideBarRight'
 import Story from './components/Story/Story'
+import SideBarLeft from './components/SideBarLeft/SideBarLeft'
+
 import './App.css'
 
 // Usernames simulados para las historias
@@ -25,42 +26,49 @@ function App() {
   }, [])
 
   return (
+
     <div className="app-layout">
-      <Header />
 
+      {/* SideBarLeft ahora vive DENTRO de app-contenido, como columna hermana del feed */}
       <div className="app-contenido">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              cargando
-                ? <p className="cargando">Cargando publicaciones...</p>
-                : (
-                  <div>
-                    {/* Barra de historias — usa los primeros 6 posts como fotos */}
-                    <div className="stories-barra">
-                      {posts.slice(0, 6).map((post, indice) => (
-                        <Story
-                          key={post.id}
-                          post={post}
-                          username={USUARIOS_STORIES[indice]}
-                          vista={indice === 0}   // la primera historia ya fue vista
-                        />
-                      ))}
+
+        <SideBarLeft />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                cargando
+                  ? <p className="cargando">Cargando publicaciones...</p>
+                  : (
+                    <>
+                    <div className="feed-columna">
+                      <div>
+                        {/* Barra de historias — usa los primeros 6 posts como fotos */}
+                        <div className="stories-barra">
+                          {posts.slice(0, 6).map((post, indice) => (
+                            <Story
+                              key={post.id}
+                              post={post}
+                              username={USUARIOS_STORIES[indice]}
+                              vista={indice === 0}   // la primera historia ya fue vista
+                            />
+                          ))}
+                        </div>
+
+                        <Feed posts={posts} onVerDetalle={setPostSeleccionado} />
+                      </div>
                     </div>
+                    <SideBar />
+                    </>
+                  )
+              }
+            />
+            <Route
+              path="/perfil"
+              element={ <div className="stories-barra"><Profile posts={posts} onVerDetalle={setPostSeleccionado} /></div>}
+            />
+          </Routes>
 
-                    <Feed posts={posts} onVerDetalle={setPostSeleccionado} />
-                  </div>
-                )
-            }
-          />
-          <Route
-            path="/perfil"
-            element={<Profile posts={posts} onVerDetalle={setPostSeleccionado}   />}
-          />
-        </Routes>
-
-        <SideBar />
       </div>
 
       {/* El Modal se muestra encima de todo cuando hay un post seleccionado */}

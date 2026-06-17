@@ -21,13 +21,14 @@
 
 /* Logo cursivo de Instagram */
 .header-logo {
-  font-family: 'Dancing Script', 'Pacifico', cursive;
-  font-size: 26px;
-  font-weight: 600;
+  font-family: 'Grand Hotel', cursive;
+  font-size: 32px;
+  font-weight: 400;
   color: #000;
   cursor: pointer;
   flex-shrink: 0;
 }
+
 
 /* Caja de búsqueda */
 .header-buscador {

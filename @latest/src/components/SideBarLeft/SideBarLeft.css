@@ -1,0 +1,74 @@
+/* Barra fija a la izquierda, igual que en el Figma */
+.sidebar-left {
+  width: 245px;
+  flex-shrink: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-right: 1px solid #dbdbdb;
+  box-sizing: border-box;
+}
+
+/* Logo cursivo arriba de todo */
+.sidebar-logo {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 32px;
+  color: #000;
+  cursor: pointer;
+  padding: 12px 12px 28px 12px;
+}
+
+/* Lista de íconos + texto */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+/* Cada fila clickeable (Home, Search, Reels, etc.) */
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+  color: #262626;
+  text-align: left;
+  width: 100%;
+}
+
+.sidebar-item:hover {
+  background-color: #f2f2f2;
+}
+
+/* Texto al lado del ícono */
+.sidebar-texto {
+  font-size: 16px;
+  color: #262626;
+}
+
+/* El primer ítem (Home) va en negrita, como en la captura */
+.sidebar-nav .sidebar-item:first-child .sidebar-texto {
+  font-weight: 700;
+}
+
+/* Avatar circular dentro del ítem "Profile" */
+.sidebar-avatar {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* Botón "More", siempre pegado abajo */
+.sidebar-mas {
+  margin-top: auto;
+}

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import './SideBar.css'
+import './SideBarRight.css'
 
 // Usuarios sugeridos simulados
 const SUGERENCIAS = [
