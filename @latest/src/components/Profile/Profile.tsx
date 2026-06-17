@@ -50,7 +50,7 @@ const Profile = ({ posts, onVerDetalle }: ProfileProps) => {
           <div
             key={post.id}
             className="perfil-grilla-item"
-            // onClick={() => onVerDetalle({ id: post.id, url: post.url })}
+            onClick={() => onVerDetalle({ id: post.id, url: post.url })}
           >
             <img src={post.url} alt="Publicación" className="perfil-grilla-imagen" />
           </div>

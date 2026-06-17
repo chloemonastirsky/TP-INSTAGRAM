@@ -61,7 +61,7 @@ function App() {
           />
           <Route
             path="/perfil"
-            element={<Profile posts={posts} onVerDetalle={setPostSeleccionado} />}
+            element={<Profile posts={posts} onVerDetalle={setPostSeleccionado}   />}
           />
         </Routes>
 

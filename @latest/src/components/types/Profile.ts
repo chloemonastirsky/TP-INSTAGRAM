@@ -8,16 +8,14 @@ export type Profile = {
     bio: string;
 }
 export type PostItem = {
-    id: string | number
+    id: string
     url: string
     [key: string]: any
 }
 
 export type ProfileProps = {
-    posts: PostItem[]
-    onSelectPost: (post: PostItem) => void
-     onVerDetalle: (post: DogPost) => void
-
+  posts: DogPost[]
+  onVerDetalle: (post: DogPost) => void
 }
 
 export type ProfileEdit = {
